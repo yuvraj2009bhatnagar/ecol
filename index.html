@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLife - AI-Powered Sustainable Living Platform</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="grid-background"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showSection('home')">
+                EcoLife AI
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showSection('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+                <li><a href="#" onclick="showSection('calculator')">Calculator</a></li>
+                <li><a href="#" onclick="showSection('courses')">Courses</a></li>
+                <li><a href="#" onclick="showSection('tracking')">Tracking</a></li>
+                <li><a href="#" onclick="showSection('community')">Community</a></li>
+                <li><a href="#" onclick="showSection('tips')">Tips</a></li>
+             
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AI Chat Assistant -->
+    <div class="ai-chat">
+        <button class="ai-chat-toggle" onclick="toggleAIChat()">🤖</button>
+        <div class="ai-chat-panel" id="aiChatPanel">
+            <div class="ai-chat-header">
+                <div class="ai-avatar-small">🤖</div>
+                <div class="ai-status">
+                    <h4>EcoLife AI Assistant</h4>
+                    <div class="status">
+                        <div class="status-dot"></div>
+                        Online & Ready to Help
+                    </div>
+                </div>
+            </div>
+            <div class="ai-messages" id="aiMessages">
+                <div class="ai-message">
+                    <p>👋 Hello! I'm your personal sustainability assistant. I can help you:</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Calculate your carbon footprint</li>
+                        <li>Suggest eco-friendly practices</li>
+                        <li>Track your progress</li>
+                        <li>Answer sustainability questions</li>
+                    </ul>
+                    <p>How can I help you today?</p>
+                </div>
+            </div>
+            <div class="ai-input-area">
+                <input type="text" class="ai-input" placeholder="Ask me anything about sustainability..." id="aiInput" onkeypress="handleAIInput(event)">
+                <button class="ai-send" onclick="sendAIMessage()">📤</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>The Future of Sustainable Living</h1>
+                        <p>Harness the power of AI to transform your lifestyle and save our planet. Get personalized recommendations, track your impact, and join a global community of eco-warriors making a real difference.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" onclick="showSection('dashboard')">
+                                🚀 Start Your Journey
+                            </button>
+                            <button class="btn-secondary" onclick="toggleAIChat()">
+                                🤖 Meet Your AI Assistant
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="ai-avatar"></div>
+                        <div class="floating-elements">
+                            <div class="floating-element">🌱</div>
+                            <div class="floating-element">♻️</div>
+                            <div class="floating-element">⚡</div>
+                            <div class="floating-element">💧</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section hidden">
+            <div class="section-header">
+                <h2>Your Sustainability Dashboard</h2>
+                <p>Get a comprehensive overview of your environmental impact and progress</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="glass-card">
+                    <span class="card-icon">📊</span>
+                    <h3>Carbon Footprint</h3>
+                    <p>Advanced AI-powered calculator that analyzes your lifestyle and provides personalized reduction strategies.</p>
+                    <button class="btn-primary" onclick="showSection('calculator')">Calculate Impact</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">🎓</span>
+                    <h3>AI-Powered Courses</h3>
+                    <p>Learn from interactive courses tailored to your needs and progress level by our sustainability AI.</p>
+                    <button class="btn-primary" onclick="showSection('courses')">Explore Courses</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">📈</span>
+                    <h3>Progress Tracking</h3>
+                    <p>Real-time monitoring of your sustainability goals with AI insights and predictive analytics.</p>
+                    <button class="btn-primary" onclick="showSection('tracking')">View Progress</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">💡</span>
+                    <h3>Smart Recommendations</h3>
+                    <p>Get AI-generated tips and suggestions based on your habits, location, and preferences.</p>
+                    <button class="btn-primary" onclick="showSection('tips')">Get Tips</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">🌍</span>
+                    <h3>Global Community</h3>
+                    <p>Connect with millions of eco-conscious individuals worldwide and participate in challenges.</p>
+                    <button class="btn-primary" onclick="showSection('community')">Join Community</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">🏆</span>
+                    <h3>Achievement System</h3>
+                    <p>Earn badges, unlock rewards, and celebrate your environmental impact milestones.</p>
+                    <button class="btn-primary" onclick="alert('🏆 Achievement system coming soon!')">View Achievements</button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div style="margin-top: 4rem;">
+                <div class="section-header">
+                    <h2>Your Impact at a Glance</h2>
+                </div>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="result-value" id="totalCO2Saved">2.5T</span>
+                        <div>CO2 Saved This Year</div>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value" id="treesEquivalent">58</span>
+                        <div>Trees Equivalent</div>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value" id="waterSaved">12.3K</span>
+                        <div>Gallons Water Saved</div>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value" id="energySaved">856</span>
+                        <div>kWh Energy Saved</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section id="calculator" class="section hidden">
+            <div class="section-header">
+                <h2>AI Carbon Footprint Calculator</h2>
+                <p>Our advanced AI analyzes your lifestyle across multiple dimensions to provide accurate carbon calculations</p>
+            </div>
+
+            <form class="calculator-form" id="carbonForm">
+                <div class="form-section">
+                    <h4>🏠 Home & Energy</h4>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="electricity">Monthly Electricity (kWh)</label>
+                            <input type="number" id="electricity" name="electricity" placeholder="300" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="gas">Monthly Natural Gas (therms)</label>
+                            <input type="number" id="gas" name="gas" placeholder="50" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="homeSize">Home Size (sq ft)</label>
+                            <input type="number" id="homeSize" name="homeSize" placeholder="2000" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="energySource">Primary Energy Source</label>
+                            <select id="energySource" name="energySource">
+                                <option value="grid">Grid (Mixed)</option>
+                                <option value="renewable">100% Renewable</option>
+                                <option value="solar">Solar Panels</option>
+                                <option value="coal">Coal Heavy</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>🚗 Transportation</h4>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="carMiles">Monthly Car Miles</label>
+                            <input type="number" id="carMiles" name="carMiles" placeholder="1000" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="carType">Vehicle Type</label>
+                            <select id="carType" name="carType">
+                                <option value="gasoline">Gasoline Car</option>
+                                <option value="hybrid">Hybrid Car</option>
+                                <option value="electric">Electric Car</option>
+                                <option value="diesel">Diesel Car</option>
+                                <option value="none">No Personal Vehicle</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="publicTransport">Public Transport (miles/month)</label>
+                            <input type="number" id="publicTransport" name="publicTransport" placeholder="100" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="flights">Annual Flight Hours</label>
+                            <input type="number" id="flights" name="flights" placeholder="10" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>🍽️ Diet & Consumption</h4>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="dietType">Diet Type</label>
+                            <select id="dietType" name="dietType">
+                                <option value="heavy-meat">Heavy Meat Eater</option>
+                                <option value="average">Average Diet</option>
+                                <option value="low-meat">Low Meat</option>
+                                <option value="pescatarian">Pescatarian</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="localFood">Local Food Percentage (%)</label>
+                            <input type="number" id="localFood" name="localFood" placeholder="25" min="0" max="100">
+                        </div>
+                        <div class="input-group">
+                            <label for="organicFood">Organic Food Percentage (%)</label>
+                            <input type="number" id="organicFood" name="organicFood" placeholder="30" min="0" max="100">
+                        </div>
+                        <div class="input-group">
+                            <label for="foodWaste">Food Waste Level</label>
+                            <select id="foodWaste" name="foodWaste">
+                                <option value="high">High (30%+ wasted)</option>
+                                <option value="average">Average (15-30%)</option>
+                                <option value="low">Low (5-15%)</option>
+                                <option value="minimal">Minimal (<5%)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>♻️ Waste & Lifestyle</h4>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="recycling">Recycling Habits</label>
+                            <select id="recycling" name="recycling">
+                                <option value="never">Never Recycle</option>
+                                <option value="sometimes">Sometimes</option>
+                                <option value="often">Often</option>
+                                <option value="always">Always Recycle</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="shopping">Monthly Shopping Items</label>
+                            <input type="number" id="shopping" name="shopping" placeholder="20" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="secondHand">Second-hand Purchases (%)</label>
+                            <input type="number" id="secondHand" name="secondHand" placeholder="15" min="0" max="100">
+                        </div>
+                        <div class="input-group">
+                            <label for="waterUsage">Water Conservation</label>
+                            <select id="waterUsage" name="waterUsage">
+                                <option value="high">High Usage</option>
+                                <option value="average">Average</option>
+                                <option value="conservative">Conservative</option>
+                                <option value="minimal">Minimal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-primary" onclick="calculateAdvancedCarbon()" style="width: 100%; margin-top: 2rem;">
+                    🧠 Analyze My Carbon Footprint with AI
+                </button>
+            </form>
+
+            <div id="carbonResult" class="result-panel"></div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="section hidden">
+            <div class="section-header">
+                <h2>AI-Powered Learning Courses</h2>
+                <p>Personalized sustainability education adapted to your knowledge level and interests</p>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">🌱</div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-tag">Beginner</span>
+                            <span class="course-tag">6 Hours</span>
+                        </div>
+                        <h3>Sustainable Living Fundamentals</h3>
+                        <p>Master the basics of eco-friendly living with AI-guided lessons covering energy, water, waste, and transportation.</p>
+                        <div class="course-progress">
+                            <div class="course-progress-fill" style="width: 65%"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                            <span>Progress: 65%</span>
+                            <button class="btn-primary">Continue Course</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">⚡</div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-tag">Intermediate</span>
+                            <span class="course-tag">8 Hours</span>
+                        </div>
+                        <h3>Renewable Energy Mastery</h3>
+                        <p>Deep dive into solar, wind, and other renewable technologies with AI simulations and real-world case studies.</p>
+                        <div class="course-progress">
+                            <div class="course-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                            <span>Not Started</span>
+                            <button class="btn-primary">Start Course</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">🌍</div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-tag">Advanced</span>
+                            <span class="course-tag">12 Hours</span>
+                        </div>
+                        <h3>Climate Science & Action</h3>
+                        <p>Understand climate change science and learn advanced strategies for carbon reduction and environmental advocacy.</p>
+                        <div class="course-progress">
+                            <div class="course-progress-fill" style="width: 30%"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                            <span>Progress: 30%</span>
+                            <button class="btn-primary">Continue Course</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">🏠</div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-tag">Practical</span>
+                            <span class="course-tag">4 Hours</span>
+                        </div>
+                        <h3>Green Home Transformation</h3>
+                        <p>Step-by-step guide to making your home energy-efficient with AI-powered recommendations and cost analysis.</p>
+                        <div class="course-progress">
+                            <div class="course-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                            <span>Not Started</span>
+                            <button class="btn-primary">Start Course</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">🚗</div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-tag">Intermediate</span>
+                            <span class="course-tag">5 Hours</span>
+                        </div>
+                        <h3>Sustainable Transportation</h3>
+                        <p>Explore electric vehicles, public transport, and alternative mobility solutions with AI route optimization.</p>
+                        <div class="course-progress">
+                            <div class="course-progress-fill" style="width: 80%"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                            <span>Progress: 80%</span>
+                            <button class="btn-primary">Continue Course</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">♻️</div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span class="course-tag">Beginner</span>
+                            <span class="course-tag">3 Hours</span>
+                        </div>
+                        <h3>Zero Waste Lifestyle</h3>
+                        <p>Learn to minimize waste with AI tracking tools and personalized reduction strategies for your household.</p>
+                        <div class="course-progress">
+                            <div class="course-progress-fill" style="width: 45%"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                            <span>Progress: 45%</span>
+                            <button class="btn-primary">Continue Course</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracking Section -->
+        <section id="tracking" class="section hidden">
+            <div class="section-header">
+                <h2>AI-Powered Progress Tracking</h2>
+                <p>Monitor your sustainability journey with intelligent insights and predictive analytics</p>
+            </div>
+
+            <div id="trackingContent">
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-info">
+                            <h4>⚡ Energy Reduction Goal</h4>
+                            <p style="color: var(--text-secondary); margin: 0;">Reduce monthly electricity consumption by 25%</p>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="progress-percentage">73%</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">186/255 kWh saved</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 73%"></div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="updateProgress('energy')">Update Progress</button>
+                        <button class="btn-secondary" onclick="viewInsights('energy')">AI Insights</button>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-info">
+                            <h4>🚌 Sustainable Transport</h4>
+                            <p style="color: var(--text-secondary); margin: 0;">Use public transport 15 days per month</p>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="progress-percentage">87%</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">13/15 days this month</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%"></div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="updateProgress('transport')">Update Progress</button>
+                        <button class="btn-secondary" onclick="viewInsights('transport')">AI Insights</button>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-info">
+                            <h4>♻️ Waste Reduction</h4>
+                            <p style="color: var(--text-secondary); margin: 0;">Achieve 60% waste reduction through recycling and composting</p>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="progress-percentage">92%</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">55/60% reduction</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%"></div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="updateProgress('waste')">Update Progress</button>
+                        <button class="btn-secondary" onclick="viewInsights('waste')">AI Insights</button>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-info">
+                            <h4>💧 Water Conservation</h4>
+                            <p style="color: var(--text-secondary); margin: 0;">Save 300 gallons of water monthly</p>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="progress-percentage">68%</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">204/300 gallons saved</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 68%"></div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="updateProgress('water')">Update Progress</button>
+                        <button class="btn-secondary" onclick="viewInsights('water')">AI Insights</button>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-info">
+                            <h4>🌱 Plant-Based Meals</h4>
+                            <p style="color: var(--text-secondary); margin: 0;">Eat plant-based meals 4 days per week</p>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="progress-percentage">56%</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">9/16 meals this month</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 56%"></div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="updateProgress('diet')">Update Progress</button>
+                        <button class="btn-secondary" onclick="viewInsights('diet')">AI Insights</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn-primary" onclick="addNewGoal()">
+                    ➕ Add New Goal
+                </button>
+                <button class="btn-secondary" onclick="generateAIReport()">
+                    📊 Generate AI Report
+                </button>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="section hidden">
+            <div class="section-header">
+                <h2>Global Eco Community</h2>
+                <p>Connect with millions of sustainability enthusiasts worldwide</p>
+            </div>
+
+            <div class="result-grid" style="margin-bottom: 3rem;">
+                <div class="result-item">
+                    <span class="result-value">2.4M</span>
+                    <div>Active Members</div>
+                </div>
+                <div class="result-item">
+                    <span class="result-value">156</span>
+                    <div>Countries</div>
+                </div>
+                <div class="result-item">
+                    <span class="result-value">45.7K</span>
+                    <div>Tons CO2 Saved</div>
+                </div>
+                <div class="result-item">
+                    <span class="result-value">98%</span>
+                    <div>User Satisfaction</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="glass-card">
+                    <span class="card-icon">💬</span>
+                    <h3>Discussion Forums</h3>
+                    <p>Join topic-based discussions, share experiences, and get advice from experts and fellow eco-warriors.</p>
+                    <button class="btn-primary" onclick="alert('🌍 Community forums coming soon!')">Join Discussions</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">🏆</span>
+                    <h3>Global Challenges</h3>
+                    <p>Participate in monthly sustainability challenges with leaderboards and rewards.</p>
+                    <button class="btn-primary" onclick="alert('🏆 Challenge system coming soon!')">View Challenges</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">📍</span>
+                    <h3>Local Groups</h3>
+                    <p>Find and connect with sustainability groups in your area for real-world environmental action.</p>
+                    <button class="btn-primary" onclick="alert('📍 Local groups feature coming soon!')">Find Groups</button>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">📚</span>
+                    <h3>Success Stories</h3>
+                    <p>Get inspired by transformation stories from community members making real environmental impact.</p>
+                    <button class="btn-primary" onclick="alert('📚 Success stories coming soon!')">Read Stories</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section id="tips" class="section hidden">
+            <div class="section-header">
+                <h2>AI-Powered Sustainability Tips</h2>
+                <p>Personalized recommendations based on your lifestyle and progress</p>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="display: inline-flex; gap: 1rem; flex-wrap: wrap; background: var(--glass-bg); padding: 1rem; border-radius: 50px; border: 1px solid var(--glass-border);">
+                    <button class="btn-primary" onclick="filterTips('all')" id="filter-all">All Tips</button>
+                    <button class="btn-secondary" onclick="filterTips('energy')" id="filter-energy">Energy</button>
+                    <button class="btn-secondary" onclick="filterTips('water')" id="filter-water">Water</button>
+                    <button class="btn-secondary" onclick="filterTips('transport')" id="filter-transport">Transport</button>
+                    <button class="btn-secondary" onclick="filterTips('waste')" id="filter-waste">Waste</button>
+                    <button class="btn-secondary" onclick="filterTips('food')" id="filter-food">Food</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid" id="tipsContainer">
+                <!-- Tips will be dynamically loaded -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section hidden">
+            <div class="section-header">
+                <h2>About EcoLife AI</h2>
+                <p>Pioneering the future of sustainable living through artificial intelligence</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="glass-card">
+                    <span class="card-icon">🧠</span>
+                    <h3>Advanced AI Technology</h3>
+                    <p>Our proprietary AI algorithms analyze millions of data points to provide personalized sustainability recommendations tailored to your unique lifestyle and environmental impact.</p>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">🌍</span>
+                    <h3>Global Impact</h3>
+                    <p>With over 2.4 million active users across 156 countries, we've helped save 45,700 tons of CO2 and continue growing our positive environmental impact daily.</p>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">🎯</span>
+                    <h3>Precision Tracking</h3>
+                    <p>Real-time monitoring and predictive analytics help you understand your environmental impact with unprecedented accuracy and actionable insights.</p>
+                </div>
+
+                <div class="glass-card">
+                    <span class="card-icon">🤝</span>
+                    <h3>Community Driven</h3>
+                    <p>Built by sustainability experts, powered by community feedback, and continuously improved through machine learning from user interactions and outcomes.</p>
+                </div>
+            </div>
+
+            <div class="glass-card" style="margin-top: 3rem; text-align: center;">
+                <h3>Our Mission</h3>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin: 2rem 0;">
+                    To democratize sustainable living through intelligent technology, making eco-friendly choices accessible, 
+                    personalized, and impactful for everyone on Earth. We believe that small, informed actions can create 
+                    massive environmental change when scaled globally.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="showSection('dashboard')">Start Your Journey</button>
+                    <button class="btn-secondary" onclick="toggleAIChat()">Talk to Our AI</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🌱 EcoLife AI</h3>
+                <p>Transforming lives through intelligent sustainability solutions. Join millions making a difference.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><img src="download.png" width="30em"></a>
+                    <a href="#" class="social-link"><img src="facebook.png" width="12em"></a>
+                    <a href="#" class="social-link"><img src="insta.png" width="20em"></a>
+                    <a href="#" class="social-link"><img src="in.png" width="20em"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Platform</h3>
+                <ul>
+                    <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+                    <li><a href="#" onclick="showSection('calculator')">Carbon Calculator</a></li>
+                    <li><a href="#" onclick="showSection('courses')">AI Courses</a></li>
+                    <li><a href="#" onclick="showSection('tracking')">Progress Tracking</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#" onclick="showSection('community')">Global Community</a></li>
+                    <li><a href="#">Discussion Forums</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Local Groups</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#" onclick="showSection('tips')">Sustainability Tips</a></li>
+                    <li><a href="https://shorturl.at/tvCPt" target="_blank">Research & Reports</a></li>
+                    <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#" onclick="toggleAIChat()">AI Assistant</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>EcoLife AI. Made with 💚 for a sustainable future.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                Powered by advanced AI • Carbon neutral hosting • 100% renewable energy
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Global State Management
+        const state = {
+            currentSection: 'home',
+            aiChatOpen: false,
+            currentTipFilter: 'all',
+            userData: {
+                totalCO2Saved: 2.5,
+                treesEquivalent: 58,
+                waterSaved: 12300,
+                energySaved: 856
+            },
+            tips: [
+                {
+                    title: 'Smart Thermostat Optimization',
+                    description: 'AI-powered thermostats can reduce energy usage by up to 23% by learning your schedule and preferences.',
+                    category: 'energy',
+                    impact: 'high',
+                    icon: '🌡️'
+                },
+                {
+                    title: 'LED Lighting Transition',
+                    description: 'Switch to LED bulbs which use 75% less energy and last 25x longer than incandescent bulbs.',
+                    category: 'energy',
+                    impact: 'high',
+                    icon: '💡'
+                },
+                {
+                    title: 'Water-Efficient Appliances',
+                    description: 'Upgrade to ENERGY STAR certified appliances to save both water and electricity consumption.',
+                    category: 'water',
+                    impact: 'high',
+                    icon: '🚿'
+                },
+                {
+                    title: 'Public Transportation Routes',
+                    description: 'Use AI route optimization apps to find the most efficient public transport combinations.',
+                    category: 'transport',
+                    impact: 'medium',
+                    icon: '🚌'
+                },
+                {
+                    title: 'Composting System Setup',
+                    description: 'Start composting organic waste to reduce methane emissions and create nutrient-rich soil.',
+                    category: 'waste',
+                    impact: 'high',
+                    icon: '🌱'
+                },
+                {
+                    title: 'Plant-Based Meal Planning',
+                    description: 'Incorporate 3-4 plant-based meals per week to reduce your carbon footprint by 20%.',
+                    category: 'food',
+                    impact: 'high',
+                    icon: '🥗'
+                },
+                {
+                    title: 'Smart Water Monitoring',
+                    description: 'Install smart water meters to track usage patterns and identify leak opportunities.',
+                    category: 'water',
+                    impact: 'medium',
+                    icon: '💧'
+                },
+                {
+                    title: 'Electric Vehicle Planning',
+                    description: 'Calculate EV charging schedules during off-peak hours for maximum renewable energy use.',
+                    category: 'transport',
+                    impact: 'high',
+                    icon: '🔌'
+                },
+                {
+                    title: 'Zero Waste Shopping',
+                    description: 'Bring reusable containers and bags to eliminate single-use packaging waste.',
+                    category: 'waste',
+                    impact: 'medium',
+                    icon: '🛍️'
+                },
+                {
+                    title: 'Local Food Networks',
+                    description: 'Connect with local farmers and food co-ops to reduce transportation emissions.',
+                    category: 'food',
+                    impact: 'medium',
+                    icon: '🥕'
+                }
+            ],
+            aiResponses: [
+                "Great question! Based on your usage patterns, I recommend starting with LED lighting upgrades - they offer immediate impact with minimal investment.",
+                "I can help you create a personalized action plan! Let me analyze your current habits and suggest the most effective changes.",
+                "That's a smart approach! Small consistent changes often have more lasting impact than dramatic lifestyle shifts.",
+                "Based on your location and preferences, here are three sustainable alternatives that would work well for your situation:",
+                "I've calculated the potential impact of that change - you could save approximately 15% on your carbon footprint annually!",
+                "Let me suggest some AI-powered tools that can help automate that sustainable practice in your daily routine.",
+                "Excellent progress! Your consistency with sustainable practices is above 85% - keep up the great work!",
+                "I notice you're particularly interested in energy efficiency. Would you like me to analyze your home's energy patterns?",
+                "That's a common challenge. I can recommend some proven strategies that have worked for users with similar lifestyles.",
+                "Perfect timing! The data shows this is actually the optimal season to implement that particular sustainable change."
+            ]
+        };
+
+        // Navigation Functions
+        function showSection(sectionName) {
+            // Update nav active state
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate current nav item
+            const currentNavItem = document.querySelector(`.nav-links a[onclick*="${sectionName}"]`);
+            if (currentNavItem) {
+                currentNavItem.classList.add('active');
+            }
+
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            document.getElementById(sectionName).classList.remove('hidden');
+            state.currentSection = sectionName;
+
+            // Initialize section-specific content
+            switch(sectionName) {
+                case 'tips':
+                    loadTips();
+                    break;
+                case 'tracking':
+                    initializeTracking();
+                    break;
+            }
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // AI Chat Functions
+        function toggleAIChat() {
+            const panel = document.getElementById('aiChatPanel');
+            state.aiChatOpen = !state.aiChatOpen;
+            
+            if (state.aiChatOpen) {
+                panel.classList.add('active');
+            } else {
+                panel.classList.remove('active');
+            }
+        }
+
+        function handleAIInput(event) {
+            if (event.key === 'Enter') {
+                sendAIMessage();
+            }
+        }
+
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const messages = document.getElementById('aiMessages');
+            const userMessage = input.value.trim();
+
+            if (!userMessage) return;
+
+            // Add user message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'ai-message';
+            userDiv.innerHTML = `<p><strong>You:</strong> ${userMessage}</p>`;
+            messages.appendChild(userDiv);
+
+            // Clear input
+            input.value = '';
+
+            // Simulate AI thinking
+            const thinkingDiv = document.createElement('div');
+            thinkingDiv.className = 'ai-message';
+            thinkingDiv.innerHTML = '<div class="loading"></div><p>AI is analyzing your question...</p>';
+            messages.appendChild(thinkingDiv);
+
+            // Scroll to bottom
+            messages.scrollTop = messages.scrollHeight;
+
+            // Generate AI response
+            setTimeout(() => {
+                messages.removeChild(thinkingDiv);
+                
+                const aiResponse = generateAIResponse(userMessage);
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'ai-message';
+                aiDiv.innerHTML = `<p><strong>🤖 EcoLife AI:</strong> ${aiResponse}</p>`;
+                messages.appendChild(aiDiv);
+                
+                messages.scrollTop = messages.scrollHeight;
+            }, 2000);
+        }
+
+        function generateAIResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            if (message.includes('carbon') || message.includes('footprint')) {
+                return "I can help you calculate your carbon footprint! Based on your lifestyle data, I'll provide personalized recommendations. Would you like to start with the advanced calculator?";
+            } else if (message.includes('energy') || message.includes('electric')) {
+                return "Energy efficiency is a great place to start! I recommend beginning with LED lighting and smart thermostats. These changes can reduce your energy consumption by up to 30%. Would you like specific product recommendations?";
+            } else if (message.includes('water') || message.includes('save')) {
+                return "Water conservation is crucial for sustainability! Simple changes like fixing leaks and using low-flow fixtures can save thousands of gallons annually. I can create a personalized water-saving plan for your home.";
+            } else if (message.includes('transport') || message.includes('car')) {
+                return "Transportation accounts for about 14% of global emissions. I can help you explore electric vehicles, public transport options, or even bike-friendly routes in your area. What's your current commute like?";
+            } else if (message.includes('food') || message.includes('diet')) {
+                return "Food choices have a huge environmental impact! Plant-based meals just 3-4 times per week can reduce your carbon footprint by 20%. I can suggest delicious, sustainable recipes tailored to your preferences.";
+            } else {
+                return state.aiResponses[Math.floor(Math.random() * state.aiResponses.length)];
+            }
+        }
+
+        // Calculator Functions
+        function calculateAdvancedCarbon() {
+            const form = document.getElementById('carbonForm');
+            const resultDiv = document.getElementById('carbonResult');
+            
+            // Show loading
+            resultDiv.innerHTML = `
+                <div style="text-align: center; padding: 3rem;">
+                    <div class="loading"></div>
+                    <h4 style="margin: 2rem 0 1rem;">🧠 AI Analysis in Progress</h4>
+                    <p>Analyzing your lifestyle across multiple dimensions...</p>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">Processing energy patterns, transportation habits, and consumption data</p>
+                </div>
+            `;
+            resultDiv.classList.add('show');
+
+            setTimeout(() => {
+                // Get all form values
+                const data = {
+                    electricity: parseFloat(form.electricity.value) || 0,
+                    gas: parseFloat(form.gas.value) || 0,
+                    homeSize: parseFloat(form.homeSize.value) || 0,
+                    energySource: form.energySource.value,
+                    carMiles: parseFloat(form.carMiles.value) || 0,
+                    carType: form.carType.value,
+                    publicTransport: parseFloat(form.publicTransport.value) || 0,
+                    flights: parseFloat(form.flights.value) || 0,
+                    dietType: form.dietType.value,
+                    localFood: parseFloat(form.localFood.value) || 0,
+                    organicFood: parseFloat(form.organicFood.value) || 0,
+                    foodWaste: form.foodWaste.value,
+                    recycling: form.recycling.value,
+                    shopping: parseFloat(form.shopping.value) || 0,
+                    secondHand: parseFloat(form.secondHand.value) || 0,
+                    waterUsage: form.waterUsage.value
+                };
+
+                // Advanced calculations with AI-like complexity
+                const calculations = performAdvancedCalculations(data);
+                displayAdvancedResults(calculations);
+                
+            }, 3000);
+        }
+
+        function performAdvancedCalculations(data) {
+            // Energy calculations with source multipliers
+            const energySourceMultipliers = { grid: 0.92, renewable: 0.05, solar: 0, coal: 1.2 };
+            const energyCarbon = (data.electricity * energySourceMultipliers[data.energySource]) + (data.gas * 11.7);
+            
+            // Transportation with vehicle efficiency
+            const carMultipliers = { gasoline: 0.89, hybrid: 0.45, electric: 0.2, diesel: 1.0, none: 0 };
+            const transportCarbon = (data.carMiles * carMultipliers[data.carType]) + 
+                                   (data.publicTransport * 0.15) + 
+                                   (data.flights * 100);
+
+            // Diet impact calculations
+            const dietMultipliers = { 'heavy-meat': 3.3, average: 2.5, 'low-meat': 1.9, pescatarian: 1.7, vegetarian: 1.4, vegan: 1.0 };
+            const foodWasteMultipliers = { high: 1.3, average: 1.15, low: 1.05, minimal: 1.0 };
+            const dietCarbon = (1200 * dietMultipliers[data.dietType] * foodWasteMultipliers[data.foodWaste]) / 12;
+
+            // Lifestyle adjustments
+            const recyclingMultipliers = { never: 1.0, sometimes: 0.85, often: 0.7, always: 0.55 };
+            const wasteCarbon = data.shopping * 5 * recyclingMultipliers[data.recycling];
+
+            // Water usage calculations
+            const waterMultipliers = { high: 1.2, average: 1.0, conservative: 0.8, minimal: 0.6 };
+            const waterCarbon = 150 * waterMultipliers[data.waterUsage];
+
+            // Home size impact
+            const homeSizeCarbon = (data.homeSize * 0.05) || 100;
+
+            // Calculate totals
+            const monthlyTotal = energyCarbon + transportCarbon + dietCarbon + wasteCarbon + waterCarbon + homeSizeCarbon;
+            const annualTotal = monthlyTotal * 12;
+
+            // Apply sustainability bonuses
+            const localFoodBonus = data.localFood * 0.002;
+            const organicBonus = data.organicFood * 0.001;
+            const secondHandBonus = data.secondHand * 0.001;
+            const totalBonus = localFoodBonus + organicBonus + secondHandBonus;
+
+            const finalAnnual = Math.max(annualTotal * (1 - totalBonus), 0);
+
+            return {
+                monthly: monthlyTotal,
+                annual: finalAnnual,
+                energy: energyCarbon,
+                transport: transportCarbon,
+                diet: dietCarbon,
+                waste: wasteCarbon,
+                water: waterCarbon,
+                home: homeSizeCarbon,
+                nationalAverage: 16000,
+                recommendations: generatePersonalizedRecommendations(data, finalAnnual)
+            };
+        }
+
+        function generatePersonalizedRecommendations(data, totalCarbon) {
+            const recommendations = [];
+            
+            if (data.energySource === 'grid' || data.energySource === 'coal') {
+                recommendations.push("🔋 Switch to renewable energy or install solar panels - potential 60% reduction in energy emissions");
+            }
+            
+            if (data.carMiles > 800) {
+                recommendations.push("🚗 Reduce car usage through public transport, cycling, or carpooling - save up to 2 tons CO2 annually");
+            }
+            
+            if (['heavy-meat', 'average'].includes(data.dietType)) {
+                recommendations.push("🌱 Incorporate more plant-based meals - 3 meatless days per week can reduce emissions by 20%");
+            }
+            
+            if (data.recycling !== 'always') {
+                recommendations.push("♻️ Improve recycling and composting habits - reduce waste emissions by up to 45%");
+            }
+            
+            if (data.flights > 20) {
+                recommendations.push("✈️ Consider carbon offset programs for flights or explore virtual alternatives for some trips");
+            }
+
+            if (data.localFood < 50) {
+                recommendations.push("🥕 Increase local and seasonal food purchases to 50%+ to reduce transportation emissions");
+            }
+
+            return recommendations;
+        }
+
+        function displayAdvancedResults(calc) {
+            const resultDiv = document.getElementById('carbonResult');
+            const comparison = calc.annual < calc.nationalAverage ? 'below' : 'above';
+            const difference = Math.abs(calc.annual - calc.nationalAverage);
+            
+            let impactLevel, levelColor, levelIcon;
+            if (calc.annual > 20000) {
+                impactLevel = 'High Impact Needed';
+                levelColor = '#ff6b35';
+                levelIcon = '🔴';
+            } else if (calc.annual > 15000) {
+                impactLevel = 'Room for Improvement';
+                levelColor = '#ffd700';
+                levelIcon = '🟡';
+            } else if (calc.annual > 10000) {
+                impactLevel = 'Good Progress';
+                levelColor = '#00a8ff';
+                levelIcon = '🔵';
+            } else {
+                impactLevel = 'Eco Champion';
+                levelColor = '#00ff88';
+                levelIcon = '🟢';
+            }
+
+            resultDiv.innerHTML = `
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h4 style="color: var(--primary-green); margin-bottom: 1rem;">
+                        🧠 AI Carbon Footprint Analysis Complete
+                    </h4>
+                    <div style="font-size: 1.2rem; color: ${levelColor}; margin-bottom: 0.5rem;">
+                        ${levelIcon} ${impactLevel}
+                    </div>
+                    <p style="color: var(--text-secondary);">
+                        Comprehensive analysis across ${Object.keys(calc).length - 2} impact categories
+                    </p>
+                </div>
+
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="result-value">${Math.round(calc.monthly).toLocaleString()}</span>
+                        <div>Monthly lbs CO2</div>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">${Math.round(calc.annual).toLocaleString()}</span>
+                        <div>Annual lbs CO2</div>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">${Math.round(difference).toLocaleString()}</span>
+                        <div>lbs ${comparison} average</div>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">${Math.round(calc.annual / 2000)}</span>
+                        <div>Tons CO2 per year</div>
+                    </div>
+                </div>
+
+                <div style="margin: 2rem 0;">
+                    <h5 style="color: var(--primary-green); margin-bottom: 1.5rem;">📊 Detailed Breakdown:</h5>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div style="background: var(--accent-dark); padding: 1rem; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 2rem;">🏠</div>
+                            <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary-green);">${Math.round(calc.energy + calc.home)}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Home Energy</div>
+                        </div>
+                        <div style="background: var(--accent-dark); padding: 1rem; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 2rem;">🚗</div>
+                            <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary-green);">${Math.round(calc.transport)}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Transportation</div>
+                        </div>
+                        <div style="background: var(--accent-dark); padding: 1rem; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 2rem;">🍽️</div>
+                            <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary-green);">${Math.round(calc.diet)}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Food & Diet</div>
+                        </div>
+                        <div style="background: var(--accent-dark); padding: 1rem; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 2rem;">♻️</div>
+                            <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary-green);">${Math.round(calc.waste + calc.water)}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Waste & Water</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin: 2rem 0;">
+                    <h5 style="color: var(--primary-green); margin-bottom: 1rem;">🤖 AI Personalized Recommendations:</h5>
+                    <div style="background: var(--accent-dark); padding: 1.5rem; border-radius: 15px;">
+                        ${calc.recommendations.map(rec => `
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: var(--glass-bg); border-radius: 10px; border: 1px solid var(--glass-border);">
+                                <div style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">${rec}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="showSection('tracking')" style="margin-right: 1rem;">
+                        📈 Create Action Plan
+                    </button>
+                    <button class="btn-secondary" onclick="generateAIInsights()">
+                        🧠 Get AI Insights
+                    </button>
+                </div>
+            `;
+        }
+
+        // Tips Functions
+        function filterTips(category) {
+            state.currentTipFilter = category;
+            
+            // Update button styles
+            document.querySelectorAll('[id^="filter-"]').forEach(btn => {
+                btn.className = 'btn-secondary';
+            });
+            document.getElementById(`filter-${category}`).className = 'btn-primary';
+            
+            loadTips();
+        }
+
+        function loadTips() {
+            const container = document.getElementById('tipsContainer');
+            const filteredTips = state.currentTipFilter === 'all' 
+                ? state.tips 
+                : state.tips.filter(tip => tip.category === state.currentTipFilter);
+
+            container.innerHTML = '';
+
+            filteredTips.forEach((tip, index) => {
+                const tipElement = document.createElement('div');
+                tipElement.className = 'glass-card';
+                tipElement.style.animationDelay = `${index * 0.1}s`;
+                tipElement.innerHTML = `
+                    <span class="card-icon">${tip.icon}</span>
+                    <h3>${tip.title}</h3>
+                    <p>${tip.description}</p>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                        <span style="background: var(--gradient-1); color: var(--primary-dark); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">
+                            ${tip.category.toUpperCase()}
+                        </span>
+                        <span style="background: var(--gradient-2); color: white; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">
+                            ${tip.impact.toUpperCase()} IMPACT
+                        </span>
+                    </div>
+                    <button class="btn-primary" onclick="implementTip('${tip.title}')">
+                        Implement This Tip
+                    </button>
+                `;
+                
+                container.appendChild(tipElement);
+            });
+        }
+
+        function implementTip(tipTitle) {
+            alert(`🌱 Great choice! "${tipTitle}" has been added to your action plan. Our AI will track your progress and provide personalized guidance.`);
+        }
+
+        // Tracking Functions
+        function initializeTracking() {
+            // Animate progress bars when section loads
+            setTimeout(() => {
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }, 300);
+        }
+
+        function updateProgress(category) {
+            const categoryData = {
+                energy: { current: 186, target: 255, unit: 'kWh saved' },
+                transport: { current: 13, target: 15, unit: 'days' },
+                waste: { current: 55, target: 60, unit: '% reduction' },
+                water: { current: 204, target: 300, unit: 'gallons' },
+                diet: { current: 9, target: 16, unit: 'meals' }
+            };
+
+            const data = categoryData[category];
+            if (data) {
+                const newValue = prompt(`Update your progress for ${category}:\n\nCurrent: ${data.current}/${data.target} ${data.unit}\n\nEnter new progress value:`);
+                if (newValue !== null && !isNaN(newValue) && newValue >= 0) {
+                    // Update the display (in a real app, this would update the backend)
+                    alert(`✅ Progress updated! Your new ${category} progress: ${newValue}/${data.target} ${data.unit}`);
+                }
+            }
+        }
+
+        function viewInsights(category) {
+            const insights = {
+                energy: "🧠 AI Analysis: You're 27% ahead of similar users! Consider smart plugs for vampire power loads. Potential additional savings: 45 kWh/month.",
+                transport: "🧠 AI Analysis: Excellent consistency! Your route optimization saves 23% more CO2 than average. Try bike-share for trips under 2 miles.",
+                waste: "🧠 AI Analysis: Outstanding progress! Your composting habits are reducing methane by 67%. Consider expanding to food packaging reduction.",
+                water: "🧠 AI Analysis: Good progress on conservation. Smart leak detection could save an additional 50 gallons/month. Your shower efficiency is above average.",
+                diet: "🧠 AI Analysis: Plant-based meal frequency is improving! Focus on protein variety. Your choices prevent 156 lbs CO2/month vs average diet."
+            };
+
+            alert(insights[category] || "🧠 AI Analysis: Keep up the great work! Your sustainability practices are making a real difference.");
+        }
+
+        function addNewGoal() {
+            const goalOptions = [
+                "Reduce plastic consumption by 40%",
+                "Install solar panels (planning phase)",
+                "Start urban gardening project",
+                "Achieve carbon neutral commuting",
+                "Implement rainwater harvesting",
+                "Reduce food waste to under 5%",
+                "Switch to electric vehicle",
+                "Create neighborhood sustainability group"
+            ];
+
+            const selectedGoal = goalOptions[Math.floor(Math.random() * goalOptions.length)];
+            alert(`🎯 New Goal Added: "${selectedGoal}"\n\nOur AI will create a personalized action plan and track your progress. You'll receive weekly insights and recommendations!`);
+        }
+
+        function generateAIReport() {
+            alert(`📊 Generating Comprehensive AI Report...\n\n✅ Analysis Complete!\n\nYour sustainability score: 8.2/10\nCarbon reduction: 34% vs baseline\nTop achievement: Waste reduction (92%)\nNext focus area: Transportation optimization\n\nDetailed report sent to your dashboard!`);
+        }
+
+        function generateAIInsights() {
+            const insights = [
+                "Based on your usage patterns, switching to time-of-use electricity rates could save an additional 15% on energy costs while using more renewable energy.",
+                "Your transportation habits show potential for 28% more CO2 reduction through optimized route planning and bike-share integration.",
+                "AI predicts you'll reach carbon neutrality 8 months ahead of schedule if you maintain current progress trends.",
+                "Your water conservation efforts are in the top 15% globally. Consider mentoring others to amplify impact.",
+                "Smart home automation could reduce your energy footprint by an additional 22% with minimal lifestyle changes."
+            ];
+
+            const randomInsight = insights[Math.floor(Math.random() * insights.length)];
+            alert(`🧠 AI Insight:\n\n${randomInsight}\n\nWould you like specific implementation guidance? Your AI assistant is ready to help!`);
+        }
+
+        // Scroll Effects
+        function handleScroll() {
+            const navbar = document.getElementById('navbar');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+            
+            // Initialize scroll listener
+            window.addEventListener('scroll', handleScroll);
+            
+            // Initialize intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards and sections
+            document.querySelectorAll('.glass-card, .course-card, .progress-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Add welcome message to AI chat
+            setTimeout(() => {
+                if (!state.aiChatOpen) {
+                    const chatButton = document.querySelector('.ai-chat-toggle');
+                    chatButton.style.animation = 'pulse 2s infinite';
+                }
+            }, 3000);
+
+            // Initialize stats counter animation for dashboard
+            if (state.currentSection === 'home') {
+                animateStats();
+            }
+        });
+
+        function animateStats() {
+            const stats = [
+                { id: 'totalCO2Saved', target: 2.5, suffix: 'T' },
+                { id: 'treesEquivalent', target: 58, suffix: '' },
+                { id: 'waterSaved', target: 12.3, suffix: 'K' },
+                { id: 'energySaved', target: 856, suffix: '' }
+            ];
+
+            stats.forEach(stat => {
+                const element = document.getElementById(stat.id);
+                if (element) {
+                    let current = 0;
+                    const increment = stat.target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= stat.target) {
+                            element.textContent = stat.target + stat.suffix;
+                            clearInterval(timer);
+                        } else {
+                            element.textContent = current.toFixed(stat.target < 10 ? 1 : 0) + stat.suffix;
+                        }
+                    }, 50);
+                }
+            });
+        }
+
+        // Enhanced keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey) {
+                switch(e.key) {
+                    case '1': showSection('home'); break;
+                    case '2': showSection('dashboard'); break;
+                    case '3': showSection('calculator'); break;
+                    case '4': showSection('courses'); break;
+                    case '5': showSection('tracking'); break;
+                    case '6': showSection('community'); break;
+                    case '7': showSection('tips'); break;
+                    case '8': showSection('about'); break;
+                    case 'a': toggleAIChat(); break;
+                }
+            }
+            
+            if (e.key === 'Escape') {
+                if (state.aiChatOpen) {
+                    toggleAIChat();
+                } else {
+                    showSection('home');
+                }
+            }
+        });
+
+        // Service Worker Registration (for PWA capabilities)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                console.log('🔧 Progressive Web App capabilities detected');
+            });
+        }
+
+        // Data persistence simulation
+        function saveUserData() {
+            const userData = {
+                section: state.currentSection,
+                tipFilter: state.currentTipFilter,
+                userData: state.userData,
+                timestamp: new Date().toISOString()
+            };
+            console.log('💾 Saving user data:', userData);
+        }
+
+        // Auto-save every 30 seconds
+        setInterval(saveUserData, 30000);
+
+        // Add some Easter eggs for engagement
+        let clickCount = 0;
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('ai-avatar')) {
+                clickCount++;
+                if (clickCount === 5) {
+                    alert('🎉 Easter Egg Found! You\'ve unlocked the "AI Whisperer" badge! Keep exploring for more surprises.');
+                    clickCount = 0;
+                }
+            }
+        });
+
+        // Initialize tips on load
+        setTimeout(() => {
+            if (state.currentSection === 'tips') {
+                loadTips();
+            }
+        }, 1000);
+
+        // Add dynamic theme based on time of day
+        function setDynamicTheme() {
+            const hour = new Date().getHours();
+            const root = document.documentElement;
+            
+            if (hour >= 6 && hour < 12) {
+                // Morning theme - brighter greens
+                root.style.setProperty('--primary-green', '#00ff9f');
+            } else if (hour >= 12 && hour < 18) {
+                // Afternoon theme - balanced
+                root.style.setProperty('--primary-green', '#00ff88');
+            } else if (hour >= 18 && hour < 22) {
+                // Evening theme - warmer tones
+                root.style.setProperty('--primary-green', '#00e676');
+            } else {
+                // Night theme - softer greens
+                root.style.setProperty('--primary-green', '#00c853');
+            }
+        }
+
+        // Apply dynamic theme
+        setDynamicTheme();
+        setInterval(setDynamicTheme, 3600000); // Update every hour
+
+        // Add confetti effect for achievements
+        function showConfetti() {
+            const colors = ['#00ff88', '#00a8ff', '#8b5cf6', '#ff6b35', '#ffd700'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.zIndex = '10000';
+                    confetti.style.animation = 'fall 3s linear forwards';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        // Add CSS for confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Console Easter Egg
+        console.log(`
+        🌱 Welcome to EcoLife AI Developer Console! 
+        
+        Try these commands:
+        • showConfetti() - Celebrate your sustainability wins!
+        • state - View current app state
+        • generateAIResponse("your question") - Test AI responses
+        
+        Building a sustainable future, one line of code at a time! 💚
+        `);
+
+        // Make some functions globally available for console use
+        window.showConfetti = showConfetti;
+        window.state = state;
+        window.generateAIResponse = generateAIResponse;
+    </script>
+</body>
+</html>
